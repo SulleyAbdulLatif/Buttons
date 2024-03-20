@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Button Types</title>
+<style>
+    /* Styling for better arrangement */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button, input[type="submit"], input[type="reset"], input[type="image"] {
+        display: block;
+        width: 100%;
+        margin: 10px auto;
+        padding: 12px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="image"]:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+    }
+
+    button:disabled, input[type="submit"]:disabled, input[type="reset"]:disabled, input[type="image"]:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Most used buttons in web development</h2>
+        
+        <!-- Basic Button -->
+        <button id="basicButton">Basic Button (Click Me!)</button>
+        <p>A simple button for general user interaction.</p>
+
+        <!-- Submit Button -->
+        <form id="submitButtonForm">
+            <input type="submit" value="Submit Form">
+        </form>
+        <p>Used to submit form data to a server.</p>
+
+        <!-- Reset Button -->
+        <form id="resetButtonForm">
+            <input type="reset" value="Reset Form">
+        </form>
+        <p>Resets the form data to its initial state.</p>
+
+        <!-- Image Button -->
+        <input type="image" src="button_image.png" alt="Image Button" id="imageButton">
+        <p>A button with an image. Click to interact.</p>
+
+        <!-- Toggle Button -->
+        <button id="toggleButton">Toggle Button</button>
+        <p>Switches between two states. Click to toggle.</p>
+
+        <!-- Disabled Button -->
+        <button id="disabledButton" disabled>Disabled Button</button>
+        <p>A button that is disabled and cannot be clicked.</p>
+    </div>
+
+    <script>
+        // JavaScript for button functionalities
+
+        // Basic Button: Used for general user interaction
+        document.getElementById("basicButton").addEventListener("click", function() {
+            alert("Basic button clicked");
+        });
+
+        // Submit Button: Used to submit form data to a server
+        document.getElementById("submitButtonForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Simulating server request (replace with actual AJAX request)
+            setTimeout(function() {
+                const success = Math.random() < 0.8; // 80% success rate
+                if (success) {
+                    alert("Form submitted successfully");
+                } else {
+                    alert("Error submitting form. Please try again.");
+                }
+            }, 1000);
+        });
+
+        // Reset Button: Used to reset form data to its initial state
+        document.getElementById("resetButtonForm").addEventListener("reset", function(event) {
+            event.preventDefault(); // Prevent form reset
+            alert("Form reset");
+        });
+
+        // Image Button: Used for user interaction with an image
+        document.getElementById("imageButton").addEventListener("click", function() {
+            alert("Image button clicked");
+        });
+
+        // Toggle Button: Used to toggle between two states
+        let toggleState = false;
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            toggleState = !toggleState;
+            const message = toggleState ? "Button is toggled on" : "Button is toggled off";
+            alert(message);
+        });
+    </script>
+</body>
+</html>
